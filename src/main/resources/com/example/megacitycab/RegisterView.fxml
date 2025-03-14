@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Pos?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.megacitycab.RegisterController">
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-background-color: #f0f0f0; -fx-padding: 40px; -fx-border-radius: 15px;">
+            <Label text="Register" style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
+
+            <TextField fx:id="txtNewUsername" promptText="Username" style="-fx-pref-width: 250px;"/>
+            <PasswordField fx:id="txtNewPassword" promptText="Password" style="-fx-pref-width: 250px;"/>
+            <PasswordField fx:id="txtConfirmPassword" promptText="Confirm Password" style="-fx-pref-width: 250px;"/>
+
+            <Button text="Register" onAction="#handleRegister" style="-fx-pref-width: 250px; -fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+
+            <Hyperlink text="Back to Login" onAction="#goToLogin"/>
+        </VBox>
+    </center>
+</BorderPane>

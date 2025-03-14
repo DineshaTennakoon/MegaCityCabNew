@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Pos?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.megacitycab.BillingSystemController">
+    <!-- Top Section -->
+    <top>
+        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #1e3a8a; -fx-padding: 15px;">
+            <Label text="Billing System" style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+        </HBox>
+    </top>
+
+    <!-- Center Section with Form and Table -->
+    <center>
+        <GridPane hgap="20" vgap="20" alignment="CENTER" style="-fx-background-color: #f4f7fc; -fx-padding: 40px; -fx-border-radius: 15px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0.5, 0, 0);">
+            <padding>
+                <Insets top="20" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <!-- Customer Name Label and TextField -->
+            <Label text="Customer Name:" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtCustomerName" style="-fx-pref-width: 280px; -fx-padding: 12px; -fx-background-color: #ffffff; -fx-border-radius: 8px; -fx-border-color: #cbd5e1; -fx-font-size: 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0.5, 0, 0);" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <!-- Amount Due Label and TextField -->
+            <Label text="Amount Due:" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtAmountDue" style="-fx-pref-width: 280px; -fx-padding: 12px; -fx-background-color: #ffffff; -fx-border-radius: 8px; -fx-border-color: #cbd5e1; -fx-font-size: 16px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 10, 0.5, 0, 0);" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <!-- Generate Bill Button -->
+            <Button text="Generate Bill" fx:id="btnGenerateBill"
+                    onAction="#handleGenerateBill"
+                    style="-fx-pref-width: 280px; -fx-padding: 12px; -fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-border-radius: 8px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 0);"
+                    GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+
+            <!-- Back to Dashboard Button -->
+            <Button text="Back to Dashboard" fx:id="btnBackToDashboard"
+                    style="-fx-pref-width: 280px; -fx-padding: 12px; -fx-background-color: #dc2626; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-border-radius: 8px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 0);"
+                    GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" onAction="#handleBackToDashboard"/>
+
+            <!-- Table for Billing Records -->
+            <TableView fx:id="billingTable" style="-fx-background-color: #ffffff; -fx-border-radius: 10px; -fx-border-color: #cbd5e1; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.5, 0, 0);" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                <columns>
+                    <TableColumn fx:id="customerNameColumn" text="Customer Name" prefWidth="180"/>
+                    <TableColumn fx:id="amountDueColumn" text="Amount Due" prefWidth="180"/>
+                </columns>
+            </TableView>
+        </GridPane>
+    </center>
+</BorderPane>

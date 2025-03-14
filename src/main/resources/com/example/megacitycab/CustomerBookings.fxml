@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Pos?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.megacitycab.CustomerBookingsController"
+            style="-fx-background-color: linear-gradient(to right, #2C3E50, #34495E);">
+
+    <!-- Top Section -->
+    <top>
+        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: linear-gradient(to right, #1E3C72, #2A5298);
+                                                     -fx-padding: 15px;
+                                                     -fx-border-radius: 0 0 12px 12px;">
+            <Label text="Customer Bookings" style="-fx-font-size: 24px;
+                                                   -fx-font-weight: bold;
+                                                   -fx-text-fill: white;
+                                                   -fx-font-family: 'Arial';"/>
+        </HBox>
+    </top>
+
+    <!-- Center Section with Form -->
+    <center>
+        <GridPane hgap="18" vgap="18" alignment="CENTER" style="-fx-background-color: #ECF0F1;
+                                                                -fx-padding: 35px;
+                                                                -fx-border-radius: 12px;
+                                                                -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.5, 0, 0);">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Customer Name Label and TextField -->
+            <Label text="Customer Name:" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;"
+                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtCustomerName" style="-fx-pref-width: 270px;
+                                                      -fx-padding: 10px;
+                                                      -fx-background-color: white;
+                                                      -fx-border-radius: 6px;
+                                                      -fx-border-color: #BDC3C7;
+                                                      -fx-font-size: 14px;"
+                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <!-- Booking Date Label and DatePicker -->
+            <Label text="Booking Date:" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2C3E50;"
+                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="dpBookingDate" style="-fx-pref-width: 270px;
+                                                     -fx-padding: 10px;
+                                                     -fx-background-color: white;
+                                                     -fx-border-radius: 6px;
+                                                     -fx-border-color: #BDC3C7;"
+                        GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <!-- Submit Button -->
+            <Button text="Submit Booking" fx:id="btnSubmitBooking"
+                    onAction="#handleSubmitBooking"
+                    style="-fx-pref-width: 270px;
+                           -fx-padding: 12px;
+                           -fx-background-color: #27AE60;
+                           -fx-text-fill: white;
+                           -fx-font-size: 16px;
+                           -fx-border-radius: 8px;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0.5, 0, 0);"
+                    GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+
+            <!-- Back to Dashboard Button -->
+            <Button text="Back to Dashboard" fx:id="btnBackToDashboard" onAction="#handleBackToDashboard"
+                    style="-fx-pref-width: 270px;
+                           -fx-padding: 12px;
+                           -fx-background-color: #C0392B;
+                           -fx-text-fill: white;
+                           -fx-font-size: 16px;
+                           -fx-border-radius: 8px;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0.5, 0, 0);"
+                    GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+
+            <!-- Table for Bookings -->
+            <TableView fx:id="bookingsTable" style="-fx-border-radius: 10px; -fx-padding: 10px;"
+                       GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                <columns>
+                    <TableColumn fx:id="customerNameColumn" text="Customer Name" prefWidth="180"/>
+                    <TableColumn fx:id="bookingDateColumn" text="Booking Date" prefWidth="180"/>
+                </columns>
+            </TableView>
+        </GridPane>
+    </center>
+</BorderPane>
